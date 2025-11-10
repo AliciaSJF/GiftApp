@@ -157,6 +157,16 @@ ENV/
 env.bak/
 venv.bak/
 
+# SQL files
+.sql
+.sql.gz
+.sql.bz2
+.sql.xz
+.sql.tar
+.sql.tar.gz
+.sql.tar.bz2
+.sql.tar.xz
+
 # Spyder project settings
 .spyderproject
 .spyproject
