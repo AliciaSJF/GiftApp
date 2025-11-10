@@ -21,7 +21,7 @@ class User(Base):
     )
     email = Column(CITEXT, unique=True, index=True, nullable=True)  # Puede ser NULL si el proveedor no comparte email
     email_verified = Column(Boolean, nullable=False, default=False)
-    display_name = Column(Text, nullable=False)  # Nombre visible en la UI
+    display_name = Column(Text, nullable=True)  # Nombre visible en la UI
     avatar_url = Column(Text, nullable=True)  # Foto del proveedor (si hay)
     locale = Column(Text, nullable=True)  # "es-ES", "en-US", etc.
     is_active = Column(Boolean, nullable=False, default=True)  # Para bloquear cuentas

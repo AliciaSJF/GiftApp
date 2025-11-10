@@ -32,6 +32,8 @@ class AuthIdentity(Base):
         index=True
     )  # 'google', 'facebook', 'github', 'apple'
     provider_user_id = Column(Text, nullable=False)  # "sub" de OpenID / ID único del proveedor
+    auth0_sub = Column(Text, nullable=True, unique=True, index=True)
+    
     provider_email = Column(CITEXT, nullable=True)  # Email reportado por proveedor (si lo comparte)
     email_verified = Column(Boolean, nullable=True)  # Verificación de ese proveedor (si aplica)
     
