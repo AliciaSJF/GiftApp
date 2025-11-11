@@ -106,29 +106,29 @@ docker-compose up --build
 - `GET /docs` - Documentación interactiva (Swagger)
 - `GET /redoc` - Documentación alternativa (ReDoc)
 
-### API de Usuarios (`/api/v1/users`)
+### API de Usuarios (`/users`)
 
-- `POST /api/v1/users/` - Crear usuario
-- `GET /api/v1/users/` - Listar usuarios
-- `GET /api/v1/users/{user_id}` - Obtener usuario
-- `PUT /api/v1/users/{user_id}` - Actualizar usuario
-- `DELETE /api/v1/users/{user_id}` - Eliminar usuario
-- `POST /api/v1/users/login` - Autenticación (obtener token)
+- `POST /users/` - Crear usuario
+- `GET /users/` - Listar usuarios
+- `GET /users/{user_id}` - Obtener usuario
+- `PUT /users/{user_id}` - Actualizar usuario
+- `DELETE /users/{user_id}` - Eliminar usuario
+- `POST /users/login` - Autenticación (obtener token)
 
-### API de Items (`/api/v1/items`)
+### API de Items (`/items`)
 
-- `POST /api/v1/items/` - Crear item
-- `GET /api/v1/items/` - Listar items
-- `GET /api/v1/items/{item_id}` - Obtener item
-- `PUT /api/v1/items/{item_id}` - Actualizar item
-- `DELETE /api/v1/items/{item_id}` - Eliminar item
+- `POST /items/` - Crear item
+- `GET /items/` - Listar items
+- `GET /items/{item_id}` - Obtener item
+- `PUT /items/{item_id}` - Actualizar item
+- `DELETE /items/{item_id}` - Eliminar item
 
 ## Ejemplos de Uso
 
 ### Crear un usuario
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/users/" \
+curl -X POST "http://localhost:8000/users/" \
   -H "Content-Type: application/json" \
   -d '{
     "email": "usuario@example.com",
@@ -140,7 +140,7 @@ curl -X POST "http://localhost:8000/api/v1/users/" \
 ### Login
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/users/login" \
+curl -X POST "http://localhost:8000/users/login" \
   -H "Content-Type: application/json" \
   -d '{
     "username": "usuario",
@@ -151,7 +151,7 @@ curl -X POST "http://localhost:8000/api/v1/users/login" \
 ### Crear un item
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/items/?owner_id=1" \
+curl -X POST "http://localhost:8000/items/?owner_id=1" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Mi primer item",

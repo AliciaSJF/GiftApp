@@ -104,11 +104,12 @@ async def http_exception_handler(
     }
     """
     logger.warning(
-        f"Excepción HTTP {exc.status_code}: {exc.detail}",
+        f"Excepción HTTP {exc.status_code}: {exc.detail} - Path: {request.url.path} - Method: {request.method}",
         extra={
             "status_code": exc.status_code,
             "path": request.url.path,
             "method": request.method,
+            "full_url": str(request.url),
         }
     )
     

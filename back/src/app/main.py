@@ -18,7 +18,7 @@ from app.core.exception_handlers import (
 )
 from app.core.exceptions import AppException
 from app.db.session import engine, Base, SessionLocal
-from app.routers import users, items, auth
+from app.routers import users, auth_oauth
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from sqlalchemy.exc import SQLAlchemyError
@@ -82,9 +82,15 @@ app.add_middleware(
 )
 
 # Incluir routers
-app.include_router(users.router, prefix="/api/v1")
-app.include_router(items.router, prefix="/api/v1")
-app.include_router(auth.router, prefix="/api/v1")
+app.include_router(users.router)
+app.include_router(auth_oauth.router)
+
+# Log de rutas registradas (solo en debug)
+if settings.DEBUG:
+    logger.info("Rutas registradas:")
+    for route in app.routes:
+        if hasattr(route, 'path') and hasattr(route, 'methods'):
+            logger.info(f"  {list(route.methods)} {route.path}")
 
 
 @app.get("/")

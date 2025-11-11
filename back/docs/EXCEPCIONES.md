@@ -345,7 +345,7 @@ Todas las excepciones se registran automáticamente con:
 ### Ejemplo de Log
 
 ```
-[2024-01-15 10:30:45] ERROR    [app.core.exception_handlers] general_exception_handler:186 - Excepción no manejada en /api/v1/users/123: division by zero
+[2024-01-15 10:30:45] ERROR    [app.core.exception_handlers] general_exception_handler:186 - Excepción no manejada en /users/123: division by zero
 ```
 
 ## Mejores Prácticas

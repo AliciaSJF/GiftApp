@@ -15,7 +15,24 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from app.core.config import settings
 from app.db.session import Base
-from app.db.models import User, Item  # Importar todos los modelos
+# Importar todos los modelos para que Alembic los detecte
+from app.db.models import (
+    AuthIdentity,
+    ContributionInvite,
+    Group,
+    GroupMember,
+    Item,
+    ItemACL,
+    ItemActivity,
+    ItemClaim,
+    ItemContribution,
+    Session,
+    Tag,
+    User,
+    Wishlist,
+    WishlistPermission,
+    WishlistTag,
+)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -41,10 +58,16 @@ target_metadata = Base.metadata
 def get_url():
     """Obtiene la URL de la base de datos desde la configuración."""
     database_url = settings.DATABASE_URL
-    # Si DATABASE_URL no especifica el driver, usar psycopg (versión 3)
-    if database_url.startswith("postgresql://") and "+" not in database_url:
+    
+    # Normalizar la URL para usar psycopg (versión 3) para Python 3.13+
+    if database_url.startswith("postgresql://"):
         # Reemplazar postgresql:// por postgresql+psycopg:// para usar psycopg v3
         database_url = database_url.replace("postgresql://", "postgresql+psycopg://", 1)
+    elif database_url.startswith("postgresql+psycopg2://"):
+        # Si ya especifica psycopg2, cambiar a psycopg v3
+        database_url = database_url.replace("postgresql+psycopg2://", "postgresql+psycopg://", 1)
+    # Si ya tiene postgresql+psycopg://, dejarlo como está
+    
     return database_url
 
 
