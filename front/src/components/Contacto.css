@@ -1,0 +1,100 @@
+.contacto {
+  padding: 6rem 2rem;
+  background: var(--color-bg);
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacto-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--color-bg-warm);
+  border-radius: 1rem;
+  border: 2px solid var(--color-border);
+  transition: all 0.2s;
+}
+
+.contacto-item:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contacto-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.contacto-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.contacto-item a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 1.125rem;
+  transition: color 0.2s;
+}
+
+.contacto-item a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contacto {
+    padding: 4rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .contacto-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+

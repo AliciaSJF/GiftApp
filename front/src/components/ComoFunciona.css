@@ -4,40 +4,23 @@
   position: relative;
 }
 
-.como-funciona::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    var(--color-border) 10px,
-    var(--color-border) 20px
-  );
-  opacity: 0.3;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.section-title {
+.como-funciona .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 4rem;
-  color: var(--color-text);
+  margin-bottom: 3rem;
+  color: var(--color-text) !important;
   position: relative;
   display: inline-block;
   width: 100%;
 }
 
-.section-title::after {
+.como-funciona .section-title::after {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -147,9 +130,9 @@
     padding: 4rem 1rem;
   }
 
-  .section-title {
+  .como-funciona .section-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .steps {

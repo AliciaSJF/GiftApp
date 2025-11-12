@@ -30,18 +30,18 @@
   margin: 0 auto;
 }
 
-.section-title {
+.privacidad .section-title {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 4rem;
-  color: var(--color-text);
+  margin-bottom: 3rem;
+  color: var(--color-text) !important;
   position: relative;
   display: inline-block;
   width: 100%;
 }
 
-.section-title::after {
+.privacidad .section-title::after {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -126,9 +126,9 @@
     padding: 4rem 1rem;
   }
 
-  .section-title {
+  .privacidad .section-title {
     font-size: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .feature {

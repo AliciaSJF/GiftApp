@@ -2,9 +2,11 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import ComoFunciona from '../components/ComoFunciona'
+import VideoDemo from '../components/VideoDemo'
 import Privacidad from '../components/Privacidad'
 import CasosUso from '../components/CasosUso'
-import CTA from '../components/CTA'
+import SobreMi from '../components/SobreMi'
+import Feedback from '../components/Feedback'
 import Footer from '../components/Footer'
 import AuthModal from '../components/AuthModal'
 import { authService } from '../services/authService'
@@ -24,9 +26,11 @@ const Home = () => {
       <Header onOpenAuth={() => setIsAuthModalOpen(true)} />
       <Hero onOpenAuth={() => setIsAuthModalOpen(true)} />
       <ComoFunciona />
+      <VideoDemo />
       <Privacidad />
       <CasosUso />
-      <CTA onOpenAuth={() => setIsAuthModalOpen(true)} />
+      <SobreMi />
+      <Feedback />
       <Footer />
       <AuthModal
         isOpen={isAuthModalOpen}

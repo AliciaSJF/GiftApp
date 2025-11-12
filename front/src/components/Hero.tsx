@@ -14,23 +14,27 @@ const Hero = ({ onOpenAuth }: HeroProps) => {
 
   return (
     <section className="hero">
-      <div className="hero-decoration hero-decoration-1">🎁</div>
-      <div className="hero-decoration hero-decoration-2">🎁</div>
-      <div className="hero-decoration hero-decoration-3">🎁</div>
       <div className="hero-container">
-        <h1 className="hero-title">
-          Evita regalos duplicados. Coordina sin chats eternos.
-        </h1>
-        <p className="hero-subtitle">
-          Comparte lo que te gustaría, sin arruinar la sorpresa.
-        </p>
-        <div className="hero-cta">
-          <button className="btn btn-primary" onClick={onOpenAuth}>
-            Empieza gratis
-          </button>
-          <button className="btn btn-secondary" onClick={scrollToDemo}>
-            Ver demo
-          </button>
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1 className="hero-title">
+              Comparte tus deseos, sin arruinar la sorpresa.<br />
+            </h1>
+            <p className="hero-subtitle">
+            Evita regalos duplicados y coordina sin chats eternos.
+            </p>
+            <div className="hero-cta">
+              <button className="btn btn-primary" onClick={onOpenAuth}>
+                Empieza gratis
+              </button>
+              <button className="btn btn-secondary" onClick={scrollToDemo}>
+                Ver demo
+              </button>
+            </div>
+          </div>
+          <div className="hero-image">
+            <img src="/Gift-bro.svg" alt="Ilustración de personas" />
+          </div>
         </div>
       </div>
     </section>

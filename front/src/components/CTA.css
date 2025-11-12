@@ -45,26 +45,6 @@
   position: relative;
 }
 
-.cta-title::before {
-  content: '✨';
-  position: absolute;
-  left: -50px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  opacity: 0.8;
-}
-
-.cta-title::after {
-  content: '✨';
-  position: absolute;
-  right: -50px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  opacity: 0.8;
-}
-
 .cta-subtitle {
   font-size: 1.25rem;
   margin-bottom: 2.5rem;
@@ -96,10 +76,6 @@
     font-size: 2rem;
   }
 
-  .cta-title::before,
-  .cta-title::after {
-    display: none;
-  }
 
   .cta-subtitle {
     font-size: 1.1rem;
