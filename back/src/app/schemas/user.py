@@ -1,9 +1,10 @@
 """
 Schemas Pydantic para usuarios
 """
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, model_validator
 from typing import Optional
 from datetime import datetime
+from app.core.exceptions import ValidationError
 
 
 class UserBase(BaseModel):
@@ -12,10 +13,18 @@ class UserBase(BaseModel):
     username: str
 
 
-class UserCreate(UserBase):
-    """Schema para crear un usuario"""
+class UserRegister(UserBase):
+    """Schema para registrar un usuario"""
+    email: str
+    username: str
     password: str
+    confirm_password: str
 
+    @model_validator(mode='after')
+    def passwords_match(self):
+        if self.password != self.confirm_password:
+            raise ValidationError(message="Passwords do not match", field="confirm_password")
+        return self
 
 class UserUpdate(BaseModel):
     """Schema para actualizar un usuario"""

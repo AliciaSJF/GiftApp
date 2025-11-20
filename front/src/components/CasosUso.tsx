@@ -9,7 +9,7 @@ const CasosUso = () => {
   ]
 
   return (
-    <section className="casos-uso">
+    <section id="casos-uso" className="casos-uso">
       <div className="container">
         <h2 className="section-title">Casos de uso</h2>
         <div className="casos-grid">

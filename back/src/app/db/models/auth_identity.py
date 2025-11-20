@@ -36,15 +36,9 @@ class AuthIdentity(Base):
     
     provider_email = Column(CITEXT, nullable=True)  # Email reportado por proveedor (si lo comparte)
     email_verified = Column(Boolean, nullable=True)  # Verificación de ese proveedor (si aplica)
-    
-    # Tokens: guarda SÓLO si de verdad los necesitas para APIs del proveedor
-    # Si no, evita almacenarlos
-    access_token_encrypted = Column(BYTEA, nullable=True)
-    refresh_token_encrypted = Column(BYTEA, nullable=True)
-    token_expires_at = Column(DateTime(timezone=True), nullable=True)
-    
+
+
     created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
 
     # Relaciones
     user = relationship("User", back_populates="auth_identities")

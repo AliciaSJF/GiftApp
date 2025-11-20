@@ -4,9 +4,9 @@ Servicio de lógica de negocio para usuarios
 from typing import List, Optional
 
 from sqlalchemy.orm import Session
-
+from app.core.exceptions import ValidationError
 from app.core.logging_config import get_logger
-from app.core.security import verify_password
+from app.core.security import verify_password, generate_password_salt, verify_password_strength
 from app.db.models.user import User
 from app.repositories.user_repository import UserRepository
 from app.schemas import user as user_schema
@@ -44,10 +44,17 @@ class UserService:
         """Obtiene una lista de usuarios."""
         return list(self.user_repository.get_multi(skip=skip, limit=limit))
 
-    def create_user(self, user: user_schema.UserCreate) -> User:
+    def create_user(self, user: user_schema.UserRegister) -> User:
         """Crea un nuevo usuario."""
         self.logger.debug(f"Creando usuario: {user.username}")
+        if not verify_password_strength(user.password):
+            raise ValidationError(message="La contraseña debe tener al menos una mayúscula, una minúscula, un dígito y un carácter especial", field="password")
+
+        password_salt = generate_password_salt()
+
         hashed_password = hash_password(user.password)
+
+
         new_user = self.user_repository.create(
             email=user.email,
             username=user.username,

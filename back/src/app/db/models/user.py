@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, DateTime, String, Text
+from sqlalchemy import Boolean, Column, DateTime, String, Text, Integer
 from sqlalchemy.dialects.postgresql import CITEXT, UUID
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -21,12 +21,16 @@ class User(Base):
     )
     email = Column(CITEXT, unique=True, index=True, nullable=True)  # Puede ser NULL si el proveedor no comparte email
     email_verified = Column(Boolean, nullable=False, default=False)
+    hashed_password = Column(Text, nullable=True)
+    password_salt = Column(Text, nullable=True)
+    last_login_at = Column(DateTime(timezone=True), nullable=True)
+    failed_login_attempts = Column(Integer, nullable=False, default=0)
+
     display_name = Column(Text, nullable=True)  # Nombre visible en la UI
     avatar_url = Column(Text, nullable=True)  # Foto del proveedor (si hay)
     locale = Column(Text, nullable=True)  # "es-ES", "en-US", etc.
     is_active = Column(Boolean, nullable=False, default=True)  # Para bloquear cuentas
     created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
-    updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
 
     # Relaciones
     auth_identities = relationship("AuthIdentity", back_populates="user", cascade="all, delete-orphan")

@@ -36,6 +36,11 @@ class Settings(BaseSettings):
     JWT_REFRESH_EXPIRES_DAYS: int = 7
     ALGORITHM: str = "HS256"
     
+
+    # Password
+    PASSWORD_MIN_LENGTH: int = 8
+    PASSWORD_MAX_LENGTH: int = 100
+    PEPPER: str
     # CORS
     CORS_ORIGINS: list[str] = ["*"]
     

@@ -89,34 +89,84 @@
 }
 
 .btn {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding: 1.125rem 2.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
   border-radius: 1rem;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+  text-transform: none;
 }
 
-.btn-primary {
-  background: var(--color-primary);
-  color: white;
-  box-shadow: var(--shadow-md);
+.hero .btn-primary {
+  background: var(--color-primary) !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(200, 90, 90, 0.25);
+  border: none;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none !important;
+  overflow: visible !important;
 }
 
-.btn-primary:hover {
-  background: var(--color-primary-dark);
+.hero .btn-primary::before,
+.hero .btn-primary::after {
+  display: none !important;
+  content: none !important;
+}
+
+.hero .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 20px rgba(200, 90, 90, 0.35);
+  background: var(--color-primary-dark) !important;
 }
 
-.btn-secondary {
+.hero .btn-primary:hover::before,
+.hero .btn-primary:hover::after {
+  display: none !important;
+}
+
+.hero .btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(200, 90, 90, 0.25);
+}
+
+.hero .btn-secondary {
   background: white;
   color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 2px 8px rgba(200, 90, 90, 0.1);
+  position: relative;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible !important;
 }
 
-.btn-secondary:hover {
-  background: var(--color-bg-light);
+.hero .btn-secondary::before,
+.hero .btn-secondary::after {
+  display: none !important;
+  content: none !important;
+}
+
+.hero .btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(200, 90, 90, 0.25);
+  border-color: var(--color-primary-dark);
+}
+
+.hero .btn-secondary:hover::before,
+.hero .btn-secondary:hover::after {
+  display: none !important;
+}
+
+.hero .btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(200, 90, 90, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -147,7 +197,7 @@
   }
 
   .btn {
-    padding: 0.875rem 2rem;
+    padding: 1rem 2rem;
     font-size: 1rem;
   }
 }

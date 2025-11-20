@@ -23,8 +23,11 @@ const Header = ({ onOpenAuth }: HeaderProps) => {
           <button className="nav-link" onClick={() => scrollToSection('como-funciona')}>
             Cómo funciona
           </button>
-          <button className="nav-link" onClick={() => scrollToSection('privacidad')}>
-            Privacidad
+          <button className="nav-link" onClick={() => scrollToSection('casos-uso')}>
+            Casos de uso
+          </button>
+          <button className="nav-link" onClick={() => scrollToSection('sobre-mi')}>
+            Sobre el proyecto
           </button>
           <button className="nav-link nav-link-primary" onClick={onOpenAuth}>
             Entrar
